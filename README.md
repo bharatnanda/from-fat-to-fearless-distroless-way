@@ -90,11 +90,14 @@ cd /usr/src/app/vulnerability
 docker build -t vulnerable-app-slim -f Dockerfile-slim .
 ```
 
-### Distroless Image
+### Distroless Image 
 ```bash
 cd /usr/src/app/vulnerability
 docker build -t vulnerable-app-distroless -f Dockerfile-distroless .
 ```
+
+#### To read more about distroless goto distroless Github page: - 
+[![Distroless Repo QR](distroless_qr.png)](https://github.com/GoogleContainerTools/distroless)
 
 ## Running Each Container
 
