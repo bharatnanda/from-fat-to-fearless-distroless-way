@@ -93,19 +93,16 @@ The RCE is **mitigated** in distroless images because they:
 
 ### Fat Image
 ```bash
-cd /usr/src/app/vulnerability
 docker build -t vulnerable-app-fat -f Dockerfile .
 ```
 
 ### Slim Image
 ```bash
-cd /usr/src/app/vulnerability
 docker build -t vulnerable-app-slim -f Dockerfile-slim .
 ```
 
 ### Distroless Image 
 ```bash
-cd /usr/src/app/vulnerability
 docker build -t vulnerable-app-distroless -f Dockerfile-distroless .
 ```
 
