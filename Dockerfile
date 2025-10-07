@@ -1,0 +1,14 @@
+FROM python:3.9
+
+WORKDIR /app
+COPY app.py .
+
+# Install Flask and ping
+RUN apt-get update && \
+    apt-get install -y iputils-ping && \
+    pip install flask && \
+    rm -rf /var/lib/apt/lists/*
+
+EXPOSE 8080
+CMD ["python", "app.py"]
+
