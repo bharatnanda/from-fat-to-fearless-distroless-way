@@ -5,12 +5,6 @@ FROM python:3.11-slim AS build
 # Set working dir for build
 WORKDIR /build
 
-# Install build dependencies only if you need to build native extensions.
-# Keep these minimal. apt-get clean to keep layer small.
-RUN apt-get update \
- && apt-get install -y --no-install-recommends build-essential curl ca-certificates \
- && rm -rf /var/lib/apt/lists/*
-
 # Install Python packages into /usr/local (same layout as normal pip installs)
 COPY requirements.txt .
 RUN pip install --no-cache-dir --prefix=/usr/local -r requirements.txt
